@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>{{ produto.nome }}</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <h1>Editar {{ produto.nome }}</h1>
+        
+        <form action="{% url 'url_home' %}">
+            <input type="submit" value="Voltar para a home"></input>
+        </form>
+        <br>
+        <form action="{% url 'readProduto' %}">
+            <input type="submit" value="Voltar para a listagem de produtos"></input>
+        </form>
+        <br>
+        <form method="POST">
+            {% csrf_token %}
+
+            {{ form.as_p }}
+            <br><button type="submit">Salvar</button>
+        </form>
+        <br>
+        <form action="{% url 'deleteProduto' produto.id %}">
+            <input type="submit" value="Deletar"></input>
+        </form>
+        
+        <script src="" async defer></script>
+    </body>
+</html>

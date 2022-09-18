@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Produtos</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <h1>Listagem de Produtos</h1>
+
+        <form action="{% url 'url_home' %}">
+            <input type="submit" value="Voltar para a home"></input>
+        </form>
+        <br><form action="{% url 'createProduto' %}">
+            <input type="submit" value="Adicionar Produto"></input>
+        </form>
+        <br>
+        <ul>
+        {% for produto in produtos %}
+            <li>
+                <a href="{% url 'updateProduto' produto.id %}">
+                    {{ produto.nome }} - R${{ produto.valor }} - {{ produto.descricao }}
+                </a>
+            </li>
+        {% endfor %}
+        </ul>
+        
+        <script src="" async defer></script>
+    </body>
+</html>
